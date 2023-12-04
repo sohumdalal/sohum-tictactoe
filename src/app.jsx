@@ -12,14 +12,15 @@ const generateBoard = (size) => {
 
 const TicTacSoh = () => {
     const [board, setBoard] = useState(generateBoard(3));
-    console.log(board);
     return (
-        <div>
+        <div >
             {
                 board.map((row, r) => {
                     return (
                         <div key={r} style = {{
                             display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}>
                             {
                                 row.map((cell, c) => {
