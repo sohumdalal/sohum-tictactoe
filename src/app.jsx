@@ -11,9 +11,19 @@ const generateBoard = (size) => {
 }
 
 const TicTacSoh = () => {
-    const [board, setBoard] = useState(generateBoard(3));
+    const [board, setBoard] = useState(generateBoard(5));
+    const [currPlayer, setCurrPlayer] = useState('x')
+
+    const handleClick = (row, col) => {
+        board[row][col] = currPlayer;
+        setBoard([...board])
+        if(currPlayer === 'x') setCurrPlayer('o');
+        if(currPlayer === 'o') setCurrPlayer('x');
+
+    }
+
     return (
-        <div >
+        <div>
             {
                 board.map((row, r) => {
                     return (
@@ -24,10 +34,13 @@ const TicTacSoh = () => {
                         }}>
                             {
                                 row.map((cell, c) => {
-                                    return <div key={c} style={{
+                                    return <div key={c} onClick = {() => handleClick(r, c)} style={{
                                         border: 'solid white 1px',
                                         height: '50px',
-                                        width: '50px'
+                                        width: '50px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
                                     }}>{cell}</div>
                                 })
                             }
