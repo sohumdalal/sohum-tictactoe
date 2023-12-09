@@ -11,7 +11,7 @@ const generateBoard = (size) => {
 }
 
 const TicTacSoh = () => {
-    const [board, setBoard] = useState(generateBoard(5));
+    const [board, setBoard] = useState(generateBoard(3));
     const [currPlayer, setCurrPlayer] = useState('x')
 
     const handleClick = (row, col) => {
